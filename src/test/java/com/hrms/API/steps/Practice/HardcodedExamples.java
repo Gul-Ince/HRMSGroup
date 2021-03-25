@@ -323,8 +323,8 @@ public class HardcodedExamples {
 		/**
 		 * Printing response
 		 */
-        // getUpdatedEmployeeResponse.prettyPrint();
-		
+		// getUpdatedEmployeeResponse.prettyPrint();
+
 		/**
 		 * Asserting expected firstname
 		 */

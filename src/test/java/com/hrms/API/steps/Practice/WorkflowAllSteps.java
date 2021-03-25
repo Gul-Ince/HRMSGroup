@@ -40,7 +40,6 @@ public class WorkflowAllSteps {
 	public void a_POST_call_is_made_to_create_an_employee() {
 
 		response = request.when().post(APIConstants.CREATE_EMPLOYEE_ENDPOINT);
-		
 
 	}
 
@@ -104,7 +103,6 @@ public class WorkflowAllSteps {
 		response.prettyPrint();
 		String empID = response.body().jsonPath().getString(responseEmployeeID);
 		Assert.assertTrue(empID.contentEquals(employeeID));
-		
 
 	}
 

@@ -14,6 +14,7 @@ import com.hrms.pages.ViewQualificationsPageElements;
 import com.hrms.utils.CommonMethods;
 
 public class PageInitializer extends BaseClass {
+
 	public static LoginPageElements login;
 	public static AddEmployeePageElements addEmp;
 	public static DashboardPageElements dashboard;

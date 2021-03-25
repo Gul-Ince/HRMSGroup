@@ -9,12 +9,11 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.*;
 
 public class TokenGenerationSteps {
-	
+
 	/**
 	 * Storing token as static variable
 	 */
-	
-	
+
 	public static String token;
 	String BaseURI = RestAssured.baseURI = "http://18.232.148.34/syntaxapi/api";
 
@@ -33,5 +32,3 @@ public class TokenGenerationSteps {
 	}
 
 }
-
-

@@ -2,7 +2,6 @@ package com.hrms.API.utils;
 
 public class APIConstants {
 
-
 	/**
 	 * CONSTANT ENDPOINTS
 	 */
@@ -16,8 +15,4 @@ public class APIConstants {
 	public static final String GET_JOB_TITLES_ENDPOINT = "/jobTitle.php";
 	public static final String GET_EMPLOYEE_STATUS_ENDPOINT = "/employeeStatus.php";
 
-	
-	
-	
-	
 }

@@ -15,6 +15,7 @@ public class ConfigsReader {
 	public static void readProperties(String filePath) {
 
 		try {
+			
 			FileInputStream fis = new FileInputStream(filePath);
 			prop = new Properties();
 			prop.load(fis);

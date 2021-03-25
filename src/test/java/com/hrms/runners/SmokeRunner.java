@@ -12,11 +12,11 @@ import io.cucumber.junit.CucumberOptions;
 		
 			, glue = "com/hrms/steps" 
 										
-			, dryRun = false 
+			, dryRun = true 
 							
 			, strict = true
 			, monochrome = true
-			, tags = "@viewEmployee"
+			, tags = "@location"
 			, plugin = {
 					"pretty", 
 																							

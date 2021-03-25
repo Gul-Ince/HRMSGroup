@@ -29,38 +29,36 @@ public class APIRestAssurePractice {
 						+ "  \"emp_middle_name\": \"\",\r\n" + "  \"emp_gender\": \"M\",\r\n"
 						+ "  \"emp_birthday\": \"1980-07-10\",\r\n" + "  \"emp_status\": \"Employee\",\r\n"
 						+ "  \"emp_job_title\": \"Developer\"\r\n" + "}");
-		
-		
+
 		Response createEmpResponse = createEmpRequest.when().post("/createEmployee.php");
 		createEmpResponse.prettyPrint();
-		employeeID=createEmpResponse.jsonPath().getString("Employee[0].employee_id");
-		
+		employeeID = createEmpResponse.jsonPath().getString("Employee[0].employee_id");
+
 		createEmpResponse.then().assertThat().statusCode(201);
-		createEmpResponse.then().assertThat().body("Message",equalTo("Entry Created"));
+		createEmpResponse.then().assertThat().body("Message", equalTo("Entry Created"));
 		createEmpResponse.then().assertThat().body("Employee[0].emp_firstname", equalTo("ShaH"));
-		createEmpResponse.then().assertThat().body("Employee[0].emp_lastname", equalTo ("Niazi"));
+		createEmpResponse.then().assertThat().body("Employee[0].emp_lastname", equalTo("Niazi"));
 		createEmpResponse.then().assertThat().header("Connection", "Keep-Alive");
-		
-		
+
 	}
-	
+
 	@Test
 	public void bGetCreatedEmployee() {
-		
+
 		RequestSpecification getCreatedEmp = given().header("Content-Type", "application/json")
-		.header("Authorization", token).queryParam("employee_id", employeeID);
-		
-		Response getCreatedEmployeeResponse=getCreatedEmp.when().get("/getOneEmployee.php");
-	    String responseBody=getCreatedEmployeeResponse.prettyPrint();
-	    String empID = getCreatedEmployeeResponse.body().jsonPath().getString("employee[0].employee_id");
-	    Assert.assertEquals(empID, employeeID);
-	    getCreatedEmployeeResponse.then().assertThat().statusCode(200);
-	    
-	    JsonPath js = new JsonPath(responseBody);
-	    
-	    String emplastname=js.getString("employee[0].emp_lastname");
-	 // Assert.assertTrue(emplastname.contentEquals("Niazi"));
-	    Assert.assertEquals(emplastname, "Niazi");
+				.header("Authorization", token).queryParam("employee_id", employeeID);
+
+		Response getCreatedEmployeeResponse = getCreatedEmp.when().get("/getOneEmployee.php");
+		String responseBody = getCreatedEmployeeResponse.prettyPrint();
+		String empID = getCreatedEmployeeResponse.body().jsonPath().getString("employee[0].employee_id");
+		Assert.assertEquals(empID, employeeID);
+		getCreatedEmployeeResponse.then().assertThat().statusCode(200);
+
+		JsonPath js = new JsonPath(responseBody);
+
+		String emplastname = js.getString("employee[0].emp_lastname");
+		// Assert.assertTrue(emplastname.contentEquals("Niazi"));
+		Assert.assertEquals(emplastname, "Niazi");
 	}
 
 }
